@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Project Proposal</title>
+<style type="text/css">
+/**
+ * Prism.s theme ported from highlight.js's xcode style
+ */
+pre code {
+  padding: 1em;
+}
+.token.comment {
+  color: #007400;
+}
+.token.punctuation {
+  color: #999;
+}
+.token.tag,
+.token.selector {
+  color: #aa0d91;
+}
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #1c00cf;
+}
+.token.property,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+  color: #c41a16;
+}
+.token.inserted {
+  background-color: #ccffd8;
+}
+.token.deleted {
+  background-color: #ffebe9;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #836c28;
+}
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #5c2699;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+</style>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+body, .footnotes, code { font-size: .9em; }
+li li { font-size: .95em; }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+pre, img { max-width: 100%; }
+pre, pre:hover {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+pre code {
+  display: block;
+  overflow-x: auto;
+}
+code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
+:not(pre) > code, code[class] { background-color: #F8F8F8; }
+code.language-undefined, pre > code:not([class]) {
+  background-color: inherit;
+  border: 1px solid #eee;
+}
+table {
+  margin: auto;
+  border-top: 1px solid #666;
+}
+table thead th { border-bottom: 1px solid #ddd; }
+th, td { padding: 5px; }
+thead, tfoot, tr:nth-child(even) { background: #eee; }
+blockquote {
+  color: #666;
+  margin: 0;
+  padding-left: 1em;
+  border-left: 0.5em solid #eee;
+}
+hr, .footnotes::before { border: 1px dashed #ddd; }
+.frontmatter { text-align: center; }
+#TOC .numbered li { list-style: none; }
+#TOC .numbered { padding-left: 0; }
+#TOC .numbered ul { padding-left: 1em; }
+table, .body h2 { border-bottom: 1px solid #666; }
+.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
+.footnote-ref a::before { content: "["; }
+.footnote-ref a::after { content: "]"; }
+section.footnotes::before {
+  content: "";
+  display: block;
+  max-width: 20em;
+}
+
+@media print {
+  body {
+    font-size: 12pt;
+    max-width: 100%;
+  }
+  tr, img { page-break-inside: avoid; }
+}
+@media only screen and (min-width: 992px) {
+  pre { white-space: pre; }
+}
+</style>
+</head>
+<body>
+<div class="frontmatter">
+<div class="title"><h1>Project Proposal</h1></div>
+<div class="author"><h2>Group 6: Wenyu, Mason, Justina, Stella, Bahiravi</h2></div>
+<div class="date"><h3></h3></div>
+</div>
+<div class="body">
+<h2 id="data-preview">Data Preview</h2>
+<pre><code class="language-r">df = read.csv(&quot;friday2017_sample.csv&quot;, header = TRUE)
+
+# Display only the first 10 columns
+df_subset &lt;- df[, 1:10]
+
+# Print the first few rows of the selected columns
+head(df_subset)
+</code></pre>
+<pre><code>##   id                                 Flow.ID        Src.IP Src.Port
+## 1  1 192.168.10.50-192.168.10.3-56108-3268-6 192.168.10.50    56108
+## 2  2  192.168.10.50-192.168.10.3-42144-389-6 192.168.10.50    42144
+## 3  3                   8.6.0.1-8.0.6.4-0-0-0       8.6.0.1        0
+## 4  4  192.168.10.25-224.0.0.251-5353-5353-17 192.168.10.25     5353
+## 5  5  192.168.10.25-17.253.14.125-123-123-17 192.168.10.25      123
+## 6  6    192.168.10.5-192.168.10.3-123-123-17  192.168.10.5      123
+##          Dst.IP Dst.Port Protocol                  Timestamp Flow.Duration
+## 1  192.168.10.3     3268        6 2017-07-07 11:59:50.315195     112740690
+## 2  192.168.10.3      389        6 2017-07-07 11:59:50.316273     112740560
+## 3       8.0.6.4        0        0 2017-07-07 12:00:31.388567     113757377
+## 4   224.0.0.251     5353       17 2017-07-07 12:00:42.903850      91997219
+## 5 17.253.14.125      123       17 2017-07-07 12:00:42.430758      66966070
+## 6  192.168.10.3      123       17 2017-07-07 12:00:53.296592      66137889
+##   Total.Fwd.Packet
+## 1               32
+## 2               32
+## 3              545
+## 4              388
+## 5                6
+## 6                6
+</code></pre>
+<h2 id="data-source">Data Source</h2>
+<ul>
+<li><a href="https://www.kaggle.com/datasets/ernie55ernie/improved-cicids2017-and-csecicids2018/data">https://www.kaggle.com/datasets/ernie55ernie/improved-cicids2017-and-csecicids2018/data</a></li>
+<li>The dataset contains millions of internet traffic logs of normal activities and intrusions. Our goal is to predict the type of internet activities using various packet metadata as predictors.</li>
+</ul>
+<h2 id="variable-description">Variable Description</h2>
+<ul>
+<li>Id: An ID that is assigned for each flow in the dataset</li>
+<li>Flow Id: A unique ID for each flow of data</li>
+<li>Src IP: The source IP address involved in the data flow</li>
+<li>Src port: The source port number used in the communication</li>
+<li>Dst IP: The destination IP address in the flow</li>
+<li>Dst Port: The destination port number for the communication</li>
+<li>Protocol: The communication protocol used</li>
+<li>Timestamp: The time the flow data was recorded</li>
+<li>Flow Duration: The duration of the flow in seconds</li>
+<li>Total Fwd Packet: The total number of forward packets in the flow</li>
+<li>Et al.</li>
+</ul>
+<h2 id="statistical-methods">Statistical Methods</h2>
+<ul>
+<li>Logistic Regression</li>
+<li>Lasso Regularization</li>
+<li>ANOVA and Visualization</li>
+</ul>
+<h2 id="computational-steps">Computational steps</h2>
+<ul>
+<li>Clean the dataset and split it into smaller sets.</li>
+<li>Fit Logistic regression on each set to predict the label (intrusion or benign).</li>
+<li>Average the coefficients from each set to build a general model.</li>
+<li>Test accuracy and compare features with Lasso.</li>
+</ul>
+<h2 id="github-repo">GitHub Repo</h2>
+<ul>
+<li><a href="https://github.com/wdai405/STAT405_Final_Project">https://github.com/wdai405/STAT405_Final_Project</a></li>
+</ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+</body>
+</html>

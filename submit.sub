@@ -1,0 +1,23 @@
+# Before running this with "condor_submit myscript.sub", the
+# directories log, error, and output must exist.
+
+log    =    log/$(Cluster)_$(i).log
+error  =  error/$(Cluster)_$(i).err
+output = output/$(Cluster)_$(i).out
+
+container_image = file:///staging/groups/stat_dscp/group06/R_tidyverse_glmnet.sif
+
+executable = xxx.sh
+
+arguments = (1) (2)
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = project_R.R, file:///staging/groups/stat_dscp/group06/partioned/$(file).csv
+
+request_cpus = 2
+request_memory = 4GB
+request_disk = 4GB
+
+queue file from fileList.txt
+
